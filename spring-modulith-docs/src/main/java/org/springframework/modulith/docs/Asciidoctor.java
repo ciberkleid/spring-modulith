@@ -22,6 +22,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.springframework.lang.Nullable;
@@ -367,4 +368,20 @@ class Asciidoctor {
 
 		return bullets.isBlank() ? "None" : bullets;
 	}
+
+	public String renderHeadline(int i, String modules) {
+
+		return "=".repeat(i) + " " + modules + System.lineSeparator();
+	}
+
+	public String renderPlantUmlInclude(String componentsFilename) {
+
+		return "plantuml::" + componentsFilename + "[]" + System.lineSeparator();
+	}
+
+	public String renderGeneralInclude(String componentsFilename) {
+
+		return "include::" + componentsFilename + "[]" + System.lineSeparator();
+	}
+
 }
